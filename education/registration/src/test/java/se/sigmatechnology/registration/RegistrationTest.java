@@ -1,4 +1,4 @@
-package se.sigmatechnology;
+package se.sigmatechnology.registration;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

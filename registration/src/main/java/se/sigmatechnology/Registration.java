@@ -4,7 +4,7 @@ package se.sigmatechnology;
  * Hello world!
  *
  */
-public class App 
+public class Registration
 {
     public static void main( String[] args )
     {

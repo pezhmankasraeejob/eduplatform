@@ -17,6 +17,10 @@ public class Student {
     @NotNull
     private String email;
 
+    public Student(){
+        // default Constructor
+    }
+
     private Student(final String id, final String fullName, final String email) {
         this.id = id;
         this.fullName = fullName;
@@ -33,27 +37,51 @@ public class Student {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public String getFullName() {
-        return fullName;
+        return this.fullName;
     }
 
     public Date getBirthDate() {
-        return birthDate;
+        return this.birthDate;
     }
 
     public String getPlaceOfBirth() {
-        return placeOfBirth;
+        return this.placeOfBirth;
     }
 
     public String getFieldOfStudy() {
-        return fieldOfStudy;
+        return this.fieldOfStudy;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setPlaceOfBirth(String placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
+    }
+
+    public void setFieldOfStudy(String fieldOfStudy) {
+        this.fieldOfStudy = fieldOfStudy;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public static class StudentBuilder{

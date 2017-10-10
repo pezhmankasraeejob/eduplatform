@@ -11,6 +11,10 @@ public class Course {
     private String name;
     private String description;
 
+    public Course(){
+        // default constructor
+    }
+
     /**
      * @param courseId
      */
@@ -36,6 +40,18 @@ public class Course {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public static class CourseBuilder{

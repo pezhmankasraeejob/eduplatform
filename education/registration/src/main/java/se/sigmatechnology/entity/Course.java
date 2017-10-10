@@ -20,7 +20,7 @@ public class Course {
         this.description = "";
     }
 
-    private Course(final String id, final String name, final String description) {
+    private Course(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;

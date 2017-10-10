@@ -65,4 +65,44 @@ public class ServiceRegistration {
     public ArrayList<Course> getAllCourses(){
         return this.courseArrayList;
     }
+
+    public Student getStudent(String studentId) {
+        Student answer = new Student.StudentBuilder("xx00000000-0000",
+                "xx",
+                "xx@x.x")
+                .build();
+
+        for(Student tempStudent : studentArrayList){
+            if (tempStudent.getId().equals(studentId)){
+                answer.setId(tempStudent.getId());
+                answer.setFullName(tempStudent.getFullName());
+                answer.setPlaceOfBirth(tempStudent.getPlaceOfBirth());
+                answer.setFieldOfStudy(tempStudent.getFieldOfStudy());
+                answer.setBirthDate(tempStudent.getBirthDate());
+                answer.setEmail(tempStudent.getEmail());
+            }
+        }
+        return answer;
+    }
+
+    public Course getCourse(String courseId) {
+        Course answer = new Course
+                .CourseBuilder("xx000")
+                .setName("NOT_SET")
+                .setDescription("NOT_SET")
+                .build();
+
+        for(Course tempCourse : courseArrayList){
+            if(tempCourse.getId().equals(courseId)){
+                answer.setId(tempCourse.getId());
+                answer.setName(tempCourse.getName());
+                answer.setDescription(tempCourse.getDescription());
+            }
+        }
+        return answer;
+    }
+
+    public void addStudent(Student student) {
+        this.studentArrayList.add(student);
+    }
 }

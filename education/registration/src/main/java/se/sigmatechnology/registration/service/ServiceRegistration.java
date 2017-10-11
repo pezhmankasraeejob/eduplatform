@@ -58,12 +58,9 @@ public class ServiceRegistration {
         this.courseArrayList.add(courseB);
     }
 
+    // Student-related services
     public ArrayList<Student> getAllStudents() {
         return this.studentArrayList;
-    }
-
-    public ArrayList<Course> getAllCourses(){
-        return this.courseArrayList;
     }
 
     public Student getStudent(String studentId) {
@@ -85,6 +82,19 @@ public class ServiceRegistration {
         return answer;
     }
 
+    public void addStudent(Student student) {
+        this.studentArrayList.add(student);
+    }
+
+    public void deleteStudent(String id) {
+        this.studentArrayList.removeIf(t -> t.getId().equals(id));
+    }
+
+    // Course-related services
+    public ArrayList<Course> getAllCourses(){
+        return this.courseArrayList;
+    }
+
     public Course getCourse(String courseId) {
         Course answer = new Course
                 .CourseBuilder("xx000")
@@ -102,7 +112,7 @@ public class ServiceRegistration {
         return answer;
     }
 
-    public void addStudent(Student student) {
-        this.studentArrayList.add(student);
+    public void deleteCourse(String id) {
+        this.courseArrayList.removeIf(t -> t.getId().equals(id));
     }
 }

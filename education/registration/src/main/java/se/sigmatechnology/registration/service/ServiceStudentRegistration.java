@@ -11,12 +11,11 @@ import java.util.*;
  */
 
 @Service
-public class ServiceRegistration {
+public class ServiceStudentRegistration {
 
     ArrayList<Student> studentArrayList = new ArrayList<Student>();
-    ArrayList<Course> courseArrayList = new ArrayList<Course>();
 
-    public ServiceRegistration() {
+    public ServiceStudentRegistration() {
         Student studentA = new Student
                 .StudentBuilder("jd19661009-1234",
                 "John Doe",
@@ -41,21 +40,6 @@ public class ServiceRegistration {
         this.studentArrayList.add(studentA);
         this.studentArrayList.add(studentB);
         this.studentArrayList.add(studentC);
-
-        Course courseA = new Course
-                .CourseBuilder("MA001")
-                .setName("Maths I")
-                .setDescription("Basic Algebra")
-                .build();
-
-        Course courseB = new Course
-                .CourseBuilder("PH001")
-                .setName("Astro II")
-                .setDescription("Advanced Astronomy")
-                .build();
-
-        this.courseArrayList.add(courseA);
-        this.courseArrayList.add(courseB);
     }
 
     // Student-related services
@@ -69,8 +53,8 @@ public class ServiceRegistration {
                 "xx@x.x")
                 .build();
 
-        for(Student tempStudent : studentArrayList){
-            if (tempStudent.getId().equals(studentId)){
+        for (Student tempStudent : studentArrayList) {
+            if (tempStudent.getId().equals(studentId)) {
                 answer.setId(tempStudent.getId());
                 answer.setFullName(tempStudent.getFullName());
                 answer.setPlaceOfBirth(tempStudent.getPlaceOfBirth());
@@ -88,35 +72,5 @@ public class ServiceRegistration {
 
     public void deleteStudent(String id) {
         this.studentArrayList.removeIf(t -> t.getId().equals(id));
-    }
-
-    // Course-related services
-    public ArrayList<Course> getAllCourses(){
-        return this.courseArrayList;
-    }
-
-    public Course getCourse(String courseId) {
-        Course answer = new Course
-                .CourseBuilder("xx000")
-                .setName("NOT_SET")
-                .setDescription("NOT_SET")
-                .build();
-
-        for(Course tempCourse : courseArrayList){
-            if(tempCourse.getId().equals(courseId)){
-                answer.setId(tempCourse.getId());
-                answer.setName(tempCourse.getName());
-                answer.setDescription(tempCourse.getDescription());
-            }
-        }
-        return answer;
-    }
-
-    public void deleteCourse(String id) {
-        this.courseArrayList.removeIf(t -> t.getId().equals(id));
-    }
-
-    public void addCourse(Course course) {
-        this.courseArrayList.add(course);
     }
 }

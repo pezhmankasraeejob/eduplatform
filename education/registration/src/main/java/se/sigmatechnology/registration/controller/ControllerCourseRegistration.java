@@ -37,4 +37,9 @@ public class ControllerCourseRegistration {
     public void addCourse(@RequestBody Course course) {
         this.serviceCourseRegistration.addCourse(course);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/course")
+    public void updateCourse(@RequestBody Course course){
+        this.serviceCourseRegistration.updateCourse(course);
+    }
 }

@@ -73,4 +73,13 @@ public class ServiceStudentRegistration {
     public void deleteStudent(String id) {
         this.studentArrayList.removeIf(t -> t.getId().equals(id));
     }
+
+    public void updateStudent(Student student) {
+        for (Student temp : this.studentArrayList) {
+            if(temp.getId().equals(student.getId())){
+                this.studentArrayList.remove(temp);
+                this.studentArrayList.add(student);
+            }
+        }
+    }
 }

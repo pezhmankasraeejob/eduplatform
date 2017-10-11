@@ -62,4 +62,13 @@ public class ServiceCourseRegistration {
     public void addCourse(Course course) {
         this.courseArrayList.add(course);
     }
+
+    public void updateCourse(Course course) {
+        for (Course temp : this.courseArrayList) {
+            if(temp.getId().equals(course.getId())){
+                this.courseArrayList.remove(temp);
+                this.courseArrayList.add(course);
+            }
+        }
+    }
 }

@@ -38,4 +38,9 @@ public class ControllerStudentRegistration {
     public void deleteStudent(@PathVariable("id") String id) {
         this.serviceStudentRegistration.deleteStudent(id);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/student")
+    public void updateStudent(@RequestBody Student student) {
+        this.serviceStudentRegistration.updateStudent(student);
+    }
 }

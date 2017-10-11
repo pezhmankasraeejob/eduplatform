@@ -115,4 +115,8 @@ public class ServiceRegistration {
     public void deleteCourse(String id) {
         this.courseArrayList.removeIf(t -> t.getId().equals(id));
     }
+
+    public void addCourse(Course course) {
+        this.courseArrayList.add(course);
+    }
 }

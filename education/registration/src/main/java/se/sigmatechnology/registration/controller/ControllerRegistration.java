@@ -57,4 +57,9 @@ public class ControllerRegistration {
         this.serviceRegistration.deleteCourse(id);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/course")
+    public void addCourse(@RequestBody Course course) {
+        this.serviceRegistration.addCourse(course);
+    }
+
 }

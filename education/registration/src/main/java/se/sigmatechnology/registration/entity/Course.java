@@ -1,12 +1,16 @@
-package se.sigmatechnology.entity;
+package se.sigmatechnology.registration.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by pke on 2017-10-09.
  */
+@Entity
 public class Course {
     @NotNull
+    @Id
     private String id;
     private String name;
     private String description;

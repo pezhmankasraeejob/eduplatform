@@ -1,7 +1,6 @@
-package se.sigmatechnology.entity;
+package se.sigmatechnology.registration.entity;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

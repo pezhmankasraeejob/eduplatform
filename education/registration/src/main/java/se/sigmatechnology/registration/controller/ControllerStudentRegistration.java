@@ -2,7 +2,7 @@ package se.sigmatechnology.registration.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import se.sigmatechnology.entity.Student;
+import se.sigmatechnology.registration.entity.Student;
 import se.sigmatechnology.registration.service.ServiceStudentRegistration;
 
 import java.util.ArrayList;

@@ -1,8 +1,7 @@
 package se.sigmatechnology.registration.service;
 
 import org.springframework.stereotype.Service;
-import se.sigmatechnology.entity.Course;
-import se.sigmatechnology.entity.Student;
+import se.sigmatechnology.registration.entity.Student;
 
 import java.util.*;
 

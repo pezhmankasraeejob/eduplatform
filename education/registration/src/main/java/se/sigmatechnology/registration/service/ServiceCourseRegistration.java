@@ -1,8 +1,9 @@
 package se.sigmatechnology.registration.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import se.sigmatechnology.entity.Course;
-import se.sigmatechnology.entity.Student;
+import se.sigmatechnology.registration.dao.CourseRepository;
+import se.sigmatechnology.registration.entity.Course;
 
 import java.util.*;
 
@@ -13,62 +14,32 @@ import java.util.*;
 @Service
 public class ServiceCourseRegistration {
 
-    ArrayList<Course> courseArrayList = new ArrayList<Course>();
+    @Autowired
+    private CourseRepository courseRepository;
 
     public ServiceCourseRegistration() {
 
-        Course courseA = new Course
-                .CourseBuilder("MA001")
-                .setName("Maths I")
-                .setDescription("Basic Algebra")
-                .build();
-
-        Course courseB = new Course
-                .CourseBuilder("PH001")
-                .setName("Astro II")
-                .setDescription("Advanced Astronomy")
-                .build();
-
-        this.courseArrayList.add(courseA);
-        this.courseArrayList.add(courseB);
     }
 
     // Course-related services
     public ArrayList<Course> getAllCourses() {
-        return this.courseArrayList;
-    }
+        ArrayList<Course> courses = new ArrayList<>();
 
-    public Course getCourse(String courseId) {
-        Course answer = new Course
-                .CourseBuilder("xx000")
-                .setName("NOT_SET")
-                .setDescription("NOT_SET")
-                .build();
+        this.courseRepository.findAll()
+        .forEach(courses::add);
 
-        for (Course tempCourse : courseArrayList) {
-            if (tempCourse.getId().equals(courseId)) {
-                answer.setId(tempCourse.getId());
-                answer.setName(tempCourse.getName());
-                answer.setDescription(tempCourse.getDescription());
-            }
-        }
-        return answer;
-    }
-
-    public void deleteCourse(String id) {
-        this.courseArrayList.removeIf(t -> t.getId().equals(id));
+        return courses;
     }
 
     public void addCourse(Course course) {
-        this.courseArrayList.add(course);
+        this.courseRepository.save(course);
     }
 
     public void updateCourse(Course course) {
-        for (Course temp : this.courseArrayList) {
-            if(temp.getId().equals(course.getId())){
-                this.courseArrayList.remove(temp);
-                this.courseArrayList.add(course);
-            }
-        }
+        this.courseRepository.save(course);
+    }
+
+    public void deleteCourse(String courseId){
+        this.courseRepository.delete(courseId);
     }
 }

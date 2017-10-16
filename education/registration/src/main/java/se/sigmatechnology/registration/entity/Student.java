@@ -1,4 +1,4 @@
-package se.sigmatechnology.entity;
+package se.sigmatechnology.registration.entity;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;

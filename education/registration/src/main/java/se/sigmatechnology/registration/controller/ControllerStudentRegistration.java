@@ -17,30 +17,23 @@ public class ControllerStudentRegistration {
     @Autowired
     private ServiceStudentRegistration serviceStudentRegistration;
 
-
-    // Student-related operations
-    @RequestMapping("/students")
-    public ArrayList<Student> getAllStudents() {
-        return serviceStudentRegistration.getAllStudents();
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/students/{sid}")
-    public Student getStudent(@PathVariable("sid") String studentId) {
-        return serviceStudentRegistration.getStudent(studentId);
+    @RequestMapping(value = "/students")
+    public ArrayList<Student> getAllStudents(){
+        return this.serviceStudentRegistration.getAllStudents();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/student")
-    public void addStudent(@RequestBody Student student) {
+    public void addStudent(@RequestBody Student student){
         this.serviceStudentRegistration.addStudent(student);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/student/{id}")
-    public void deleteStudent(@PathVariable("id") String id) {
-        this.serviceStudentRegistration.deleteStudent(id);
+    @RequestMapping(method = RequestMethod.PUT, value = "/student")
+    public void updateStudent(@RequestBody Student student){
+        this.serviceStudentRegistration.updateStudent(student);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/student")
-    public void updateStudent(@RequestBody Student student) {
-        this.serviceStudentRegistration.updateStudent(student);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/student/{id}")
+    public void deleteStudent(@PathVariable("id") String studentId){
+        this.serviceStudentRegistration.deleteStudent(studentId);
     }
 }

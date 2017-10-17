@@ -1,6 +1,8 @@
 package se.sigmatechnology.registration.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import se.sigmatechnology.registration.dao.StudentRepository;
 import se.sigmatechnology.registration.entity.Student;
 
 import java.util.*;
@@ -12,73 +14,32 @@ import java.util.*;
 @Service
 public class ServiceStudentRegistration {
 
-    ArrayList<Student> studentArrayList = new ArrayList<Student>();
+    @Autowired
+    private StudentRepository studentRepository;
 
     public ServiceStudentRegistration() {
-        Student studentA = new Student
-                .StudentBuilder("jd19661009-1234",
-                "John Doe",
-                "john.doe@sigma.se")
-                .setFieldOfStudy("Maths")
-                .build();
 
-        Student studentB = new Student
-                .StudentBuilder("ah19761022-4321",
-                "Alice Hamilton",
-                "alice.hamilton@sigma.se")
-                .setFieldOfStudy("Phsyics")
-                .build();
-
-        Student studentC = new Student
-                .StudentBuilder("rd19861109-0987",
-                "Ruddy Donson",
-                "ruddy.donson@sigma.se")
-                .setFieldOfStudy("Astronomy")
-                .build();
-
-        this.studentArrayList.add(studentA);
-        this.studentArrayList.add(studentB);
-        this.studentArrayList.add(studentC);
     }
 
     // Student-related services
     public ArrayList<Student> getAllStudents() {
-        return this.studentArrayList;
-    }
+        ArrayList<Student> students = new ArrayList<>();
 
-    public Student getStudent(String studentId) {
-        Student answer = new Student.StudentBuilder("xx00000000-0000",
-                "xx",
-                "xx@x.x")
-                .build();
+        this.studentRepository.findAll()
+                .forEach(students::add);
 
-        for (Student tempStudent : studentArrayList) {
-            if (tempStudent.getId().equals(studentId)) {
-                answer.setId(tempStudent.getId());
-                answer.setFullName(tempStudent.getFullName());
-                answer.setPlaceOfBirth(tempStudent.getPlaceOfBirth());
-                answer.setFieldOfStudy(tempStudent.getFieldOfStudy());
-                answer.setBirthDate(tempStudent.getBirthDate());
-                answer.setEmail(tempStudent.getEmail());
-            }
-        }
-        return answer;
+        return students;
     }
 
     public void addStudent(Student student) {
-        this.studentArrayList.add(student);
+        this.studentRepository.save(student);
     }
 
     public void deleteStudent(String id) {
-        this.studentArrayList.removeIf(t -> t.getId().equals(id));
+        this.studentRepository.delete(id);
     }
 
     public void updateStudent(Student student) {
-        for (Student temp : this.studentArrayList) {
-            if(temp.getId().equals(student.getId())){
-                this.studentArrayList.remove(temp);
-                this.studentArrayList.add(student);
-            }
-        }
+        this.studentRepository.save(student);
     }
 }

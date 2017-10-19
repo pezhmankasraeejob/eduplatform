@@ -60,13 +60,12 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- derbyclient -->
+    <!-- spring boot starter data mongodb -->
     <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derbyclient</artifactId>
-      <version>10.13.1.1</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      <version>1.5.8.RELEASE</version>
     </dependency>
-
 
     <!-- log4j -->
     <dependency>

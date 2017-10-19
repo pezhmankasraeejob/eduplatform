@@ -2,6 +2,7 @@ package se.sigmatechnology.registration.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -9,9 +10,10 @@ import java.util.Date;
  * Created by pke on 2017-10-10.
  */
 @Entity
+@Table(name = "tblStudent")
 public class Student {
-    @NotNull
     @Id
+    @NotNull
     private String id;
     @NotNull
     private String fullName;

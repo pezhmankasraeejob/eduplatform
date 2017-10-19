@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.sigmatechnology.registration.dao.CourseRepository;
 import se.sigmatechnology.registration.entity.Course;
+import se.sigmatechnology.registration.entity.Student;
 
 import java.util.*;
 

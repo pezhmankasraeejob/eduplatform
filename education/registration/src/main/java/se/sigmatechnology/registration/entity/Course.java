@@ -1,19 +1,30 @@
 package se.sigmatechnology.registration.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 
 /**
  * Created by pke on 2017-10-09.
  */
 @Entity
+@Table(name = "tblCourse")
 public class Course {
     @NotNull
     @Id
     private String id;
     private String name;
     private String description;
+
+    private ArrayList<Student> students;
+
+    public ArrayList<Student> getStudents() {
+        return this.students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
 
     public Course(){
         // default constructor
@@ -28,10 +39,11 @@ public class Course {
         this.description = "";
     }
 
-    private Course(String id, String name, String description) {
+    private Course(String id, String name, String description, ArrayList<Student> students) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.students = students;
     }
 
     public String getId() {
@@ -64,6 +76,7 @@ public class Course {
         private String nestedId;
         private String nestedName;
         private String nestedDescription;
+        private ArrayList<Student> nestedStudents;
 
         public CourseBuilder(final String courseId){
             this.nestedId = courseId;
@@ -81,8 +94,16 @@ public class Course {
             return this;
         }
 
+        public CourseBuilder setStudentList(final ArrayList<Student> students){
+            for(Student tempStudent:students){
+                this.nestedStudents.add(tempStudent);
+            }
+
+            return this;
+        }
+
         public Course build(){
-            return new Course(nestedId, nestedName, nestedDescription);
+            return new Course(nestedId, nestedName, nestedDescription, nestedStudents);
         }
     }
 }

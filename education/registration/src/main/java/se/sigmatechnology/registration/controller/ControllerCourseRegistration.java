@@ -18,24 +18,22 @@ public class ControllerCourseRegistration {
     @Autowired
     private ServiceCourseRegistration serviceCourseRegistration;
 
+    // GET
     @RequestMapping("/courses")
     public ArrayList<Course> getAllCourses(){
         return serviceCourseRegistration.getAllCourses();
     }
 
+    // POST
     @RequestMapping("/course")
     public void addCourse(@RequestBody Course course){
         this.serviceCourseRegistration.addCourse(course);
     }
 
+    // PUT
     @RequestMapping(value = "/course", method = RequestMethod.PUT)
     public void updateCourse(@RequestBody Course course){
         this.serviceCourseRegistration.updateCourse(course);
-    }
-
-    @RequestMapping(value = "/course/{id}", method = RequestMethod.DELETE)
-    public void deleteCourse(@PathVariable("id") String courseId){
-        this.serviceCourseRegistration.deleteCourse(courseId);
     }
 
     @RequestMapping(value = "/course/{courseId}/students", method = RequestMethod.PUT)
@@ -46,4 +44,12 @@ public class ControllerCourseRegistration {
 
         this.serviceCourseRegistration.addCourse(course);
     }
+
+
+    // DELETE
+    @RequestMapping(value = "/course/{id}", method = RequestMethod.DELETE)
+    public void deleteCourse(@PathVariable("id") String courseId){
+        this.serviceCourseRegistration.deleteCourse(courseId);
+    }
+
 }

@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.sigmatechnology</groupId>
   <artifactId>education</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>education</name>
-
+  
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

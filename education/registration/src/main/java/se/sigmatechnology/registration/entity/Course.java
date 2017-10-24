@@ -2,7 +2,7 @@ package se.sigmatechnology.registration.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * Created by pke on 2017-10-09.
@@ -15,16 +15,6 @@ public class Course {
     private String id;
     private String name;
     private String description;
-
-    private ArrayList<Student> students;
-
-    public ArrayList<Student> getStudents() {
-        return this.students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
 
     public Course(){
         // default constructor
@@ -39,11 +29,10 @@ public class Course {
         this.description = "";
     }
 
-    private Course(String id, String name, String description, ArrayList<Student> students) {
+    private Course(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.students = students;
     }
 
     public String getId() {
@@ -76,7 +65,6 @@ public class Course {
         private String nestedId;
         private String nestedName;
         private String nestedDescription;
-        private ArrayList<Student> nestedStudents;
 
         public CourseBuilder(final String courseId){
             this.nestedId = courseId;
@@ -94,16 +82,8 @@ public class Course {
             return this;
         }
 
-        public CourseBuilder setStudentList(final ArrayList<Student> students){
-            for(Student tempStudent:students){
-                this.nestedStudents.add(tempStudent);
-            }
-
-            return this;
-        }
-
         public Course build(){
-            return new Course(nestedId, nestedName, nestedDescription, nestedStudents);
+            return new Course(nestedId, nestedName, nestedDescription);
         }
     }
 }

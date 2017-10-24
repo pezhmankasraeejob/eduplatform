@@ -36,11 +36,10 @@ public class ControllerCourseRegistration {
         this.serviceCourseRegistration.updateCourse(course);
     }
 
-    @RequestMapping(value = "/course/{courseId}/students", method = RequestMethod.PUT)
-    public void addStudentsToCourse(@PathVariable("courseId") String courseId, @RequestBody ArrayList<Student> students){
+    @RequestMapping(value = "/course/{courseId}", method = RequestMethod.PUT)
+    public void addStudentsToCourse(@PathVariable("courseId") String courseId){
         Course course = new Course.CourseBuilder(courseId)
                 .build();
-        course.setStudents(students);
 
         this.serviceCourseRegistration.addCourse(course);
     }

@@ -57,6 +57,14 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- hibernate -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate</artifactId>
+      <version>3.5.4-Final</version>
+      <type>pom</type>
+    </dependency>
+
     <!-- spring boot starter data mongodb -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

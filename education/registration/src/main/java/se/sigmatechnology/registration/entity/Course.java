@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "tblCourse")
-public class Course {
+public class Course implements Serializable{
     @NotNull
     @Id
     private String id;

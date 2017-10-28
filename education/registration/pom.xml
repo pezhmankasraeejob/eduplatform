@@ -3,7 +3,7 @@
 
   <groupId>se.sigmatechnology.registration</groupId>
   <artifactId>registration</artifactId>
-  <version>1.5.0</version>
+  <version>1.6.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>registration</name>
@@ -18,7 +18,7 @@
 
   <scm>
     <connection>scm:git:https://github.com/pezhmankasraeejob/eduplatform.git</connection>
-    <tag>education-1.5.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <parent>

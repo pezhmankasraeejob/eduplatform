@@ -11,11 +11,15 @@
   <url>http://maven.apache.org</url>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>ftp-pezhmankasraee-snapshot</id>
-      <url>ftp://ftp.pezhmankasraee.com/eduplatform/snapshots</url>
-    </snapshotRepository>
+    <repository>
+      <id>ftp-pezhmankasraee-release</id>
+      <url>ftp://ftp.pezhmankasraee.com/eduplatform/releases</url>
+    </repository>
   </distributionManagement>
+
+  <scm>
+    <connection>scm:git:https://github.com/pezhmankasraeejob/eduplatform.git</connection>
+  </scm>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -111,6 +115,12 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
       </plugin>
     </plugins>
 

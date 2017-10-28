@@ -7,11 +7,16 @@
   <packaging>pom</packaging>
   <name>education</name>
   <distributionManagement>
-    <snapshotRepository>
-      <id>ftp-pezhmankasraee-snapshot</id>
-      <url>ftp://ftp.pezhmankasraee.com/eduplatform/snapshots</url>
-    </snapshotRepository>
+    <repository>
+      <id>ftp-pezhmankasraee-release</id>
+      <url>ftp://ftp.pezhmankasraee.com/eduplatform/releases</url>
+    </repository>
   </distributionManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/pezhmankasraeejob/eduplatform.git</connection>
+    </scm>
+
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,5 +34,17 @@
         <version>3.0.0</version>
       </extension>
     </extensions>
+
+      <plugins>
+
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-release-plugin</artifactId>
+              <version>2.5.3</version>
+          </plugin>
+
+      </plugins>
+
   </build>
+
 </project>

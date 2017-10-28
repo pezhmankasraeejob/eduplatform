@@ -6,7 +6,12 @@
   <version>1.5.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>education</name>
-  
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ftp-pezhmankasraee-snapshot</id>
+      <url>ftp://ftp.pezhmankasraee.com/eduplatform/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,4 +20,14 @@
   <modules>
     <module>registration</module>
   </modules>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ftp</artifactId>
+        <version>3.0.0</version>
+      </extension>
+    </extensions>
+  </build>
 </project>

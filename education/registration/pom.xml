@@ -10,6 +10,13 @@
   <name>registration</name>
   <url>http://maven.apache.org</url>
 
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ftp-pezhmankasraee-snapshot</id>
+      <url>ftp://ftp.pezhmankasraee.com/eduplatform/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -106,5 +113,14 @@
         </executions>
       </plugin>
     </plugins>
+
+      <extensions>
+        <extension>
+          <groupId>org.apache.maven.wagon</groupId>
+          <artifactId>wagon-ftp</artifactId>
+          <version>3.0.0</version>
+        </extension>
+      </extensions>
+
   </build>
 </project>
